@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const onClick = () => {
+    alert("Hi!")
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <svg width="200" height="200" style={{ backgroundColor: "lightblue" }}>
+      <SVGCircle y={50} />
+      <SVGCircle y={150} />
+    </svg>
   );
+}
+
+type cy = {
+  y: number
+}
+const SVGCircle = (arg: cy) => {
+  const onClick = () => {
+    alert("Hi!")
+  }
+  return (
+    <circle cx="100" cy={arg.y} r="40" stroke="white" stroke-width="5" fill="yellow" onClick={onClick} />
+  )
 }
 
 export default App;
