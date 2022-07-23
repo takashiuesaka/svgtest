@@ -1,29 +1,17 @@
 import React from 'react';
+import SVGCircle from './SVGCircle';
 import './App.css';
 
 const App = () => {
 
-  const onClick = () => {
-    alert("Hi!")
-  }
   return (
-    <svg width="200" height="200" style={{ backgroundColor: "lightblue" }}>
-      <SVGCircle y={50} />
-      <SVGCircle y={150} />
+    <svg width="500" height="100vh" style={{ backgroundColor: "lightblue" }}>
+      <SVGCircle x={100} y={50} r={40} stroke="white" strokeWidth="5" fill="yellow" />
+      <SVGCircle x={100} y={150} r={40} stroke="white" strokeWidth="5" fill="yellow" />
+      <rect x="10" y="200" width="380" height="180" rx="10" ry="10" fill="#e74c3c" stroke="navy" strokeWidth="10" />
     </svg>
   );
 }
 
-type cy = {
-  y: number
-}
-const SVGCircle = (arg: cy) => {
-  const onClick = () => {
-    alert("Hi!")
-  }
-  return (
-    <circle cx="100" cy={arg.y} r="40" stroke="white" stroke-width="5" fill="yellow" onClick={onClick} />
-  )
-}
 
 export default App;
