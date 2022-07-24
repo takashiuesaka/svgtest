@@ -20,7 +20,7 @@ const SVGCircle = (props: CircleType) => {
         console.log(`MouseDown svgX: ${_event.clientX - circleStatus.x}, svgY: ${_event.clientY - circleStatus.y}`)
     }
 
-    const onMouseUp: React.MouseEventHandler<SVGCircleElement> = (_event) => {
+    const onMouseUpOrOut: React.MouseEventHandler<SVGCircleElement> = (_event) => {
         setDragStatus({ isMouseDown: false, x: _event.clientX - circleStatus.x, y: _event.clientY - circleStatus.y })
         console.log(`MouseUp svgX: ${_event.clientX - circleStatus.x}, svgY: ${_event.clientY - circleStatus.y}`)
     }
@@ -34,7 +34,8 @@ const SVGCircle = (props: CircleType) => {
     return (
         <circle cx={circleStatus.x} cy={circleStatus.y} r={circleStatus.r} stroke={circleStatus.stroke} strokeWidth={circleStatus.strokeWidth} fill={circleStatus.fill}
             onMouseDown={onMouseDown}
-            onMouseUp={onMouseUp}
+            onMouseUp={onMouseUpOrOut}
+            onMouseOut={onMouseUpOrOut}
             onMouseMove={onMouseMove} />
     )
 }
